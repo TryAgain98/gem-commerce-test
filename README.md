@@ -1,31 +1,45 @@
-# React + TypeScript + Vite + React-query + antd + axios + zustand + socket.io-client
+## 🚀 Getting Started
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To run this project locally, follow these steps:
 
-Currently, two official plugins are available:
+### 1. Install dependencies:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Open your terminal, navigate to the project's root directory, and run the following command to install all necessary packages:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm install
+# or if you use yarn
+yarn install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-- Techs: React, vite, typescript, wagmi, scss, react-router, socket.io-client
+### 2. Run the application (Development Mode):
+
+After the installation is complete, you can start the development server with the command:
+
+```bash
+npm run dev
+# or if you use yarn
+yarn dev
+```
+
+This command will launch the application in development mode. Open your browser and go to the address displayed in the terminal (usually `http://localhost:3001` or a similar port provided by Vite).
+
+### 3. Run Tests:
+
+To ensure everything works as expected, you can run the test suite with the command:
+
+```bash
+npm test
+# or if you use yarn
+yarn test
+```
+
+## 🛠️ Technologies Used
+
+- ⚛️ **React 18 & TypeScript**: Building dynamic and flexible user interfaces with the support of strong typing.
+- ⚡ **Vite**: Experience an ultra-fast build tool for a smooth development process.
+- 🎨 **SCSS & CSS Modules**: Styling components in an organized way and avoiding conflicts.
+- 🧭 **React Router DOM**: Managing navigation within the application effectively.
+- 🧪 **Testing Library (Jest DOM, React, User Event)**: Ensuring code quality with a comprehensive test suite.
+- 📜 **ESLint & Prettier**: Keeping the code clean, readable, and consistent.
+- 🐶 **Husky & commitlint**: Automating code checks and enforcing commit conventions.
