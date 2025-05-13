@@ -1,0 +1,16 @@
+.container {
+  background-color: transparent;
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: none;
+  border: none;
+  color: #aaaaaa;
+  &.active {
+    background-color: #424242;
+    color: #f9f9f9;
+  }
+}
