@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react"
 import styles from "./unitValue.module.scss"
 import InputNumber from "../common/input/InputNumber"
 import { UnitType } from "../../types/unit"
+import { MAX_PERCENTAGE } from "@/constants/unit.constant"
 interface UnitValueProps {
   unit?: UnitType
 }
-const MAX_PERCENTAGE = 100
 const UnitValue: React.FC<UnitValueProps> = ({ unit = "%" }) => {
   const [unitValue, setUnitValue] = useState<string>("1")
 

@@ -1,12 +1,11 @@
 import styles from "./unit.module.scss"
 import Button from "../common/button"
 import { UnitType } from "../../types/unit"
+import { UNIT_LIST } from "@/constants/unit.constant"
 interface UnitProps {
   unit: UnitType
   onChange: (unit: UnitType) => void
 }
-
-const UNIT_LIST: UnitType[] = ["%", "px"]
 
 function Unit({ unit, onChange }: UnitProps) {
   return (
