@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import styles from "./unitValue.module.scss"
 import InputNumber from "../common/input/InputNumber"
 import { UnitType } from "../../types/unit"
-import { MAX_PERCENTAGE } from "@/constants/unit.constant"
+import { MAX_PERCENTAGE } from "../../constants/unit.constant"
 interface UnitValueProps {
   unit?: UnitType
 }
