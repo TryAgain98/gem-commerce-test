@@ -25,7 +25,9 @@ const InputNumber: React.FC<InputNumberProps> = ({
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value
+    let newValue = e.target.value
+    // Replace comma with period
+    newValue = newValue.replace(",", ".")
 
     if (/^-?\d*\.?\d*$/.test(newValue) || newValue === "") {
       onChangeValue(newValue)
