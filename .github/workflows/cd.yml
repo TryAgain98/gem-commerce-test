@@ -1,0 +1,47 @@
+name: Deploy APP
+
+on:
+  push:
+    branches:
+      - develop
+      - staging
+
+jobs:
+  build:
+    runs-on: [self-hosted]
+
+    steps:
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to Develop
+        if: github.ref == 'refs/heads/develop'
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/sotatek/test/FE/base-wagmi-vite
+            git pull origin develop
+            git status
+            npm install
+            pm2 restart TEST_DEV_FE
+
+      - name: Deploy to Staging
+        if: github.ref == 'refs/heads/staging'
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/sotatek/test/FE/base-wagmi-vite
+            git pull origin staging
+            git status
+            npm install
+            pm2 restart TEST_STAGING_FE

@@ -1,0 +1,34 @@
+name: Deploy APP, setup manually runner
+
+on:
+  push:
+    branches:
+      - test
+      - test_staging
+
+jobs:
+  build:
+    runs-on: [self-hosted]
+
+    steps:
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy to Develop
+        if: github.ref == 'refs/heads/test'
+        run: |
+          cd /home/sotatek/test/FE/base-wagmi-vite
+          git pull origin test
+          git status
+          npm install
+          pm2 restart TEST_DEV_FE
+
+      - name: Deploy to Staging
+        if: github.ref == 'refs/heads/test_staging'
+        run: |
+          cd /home/sotatek/test/FE/base-wagmi-vite
+          git pull origin test_staging
+          git status
+          npm install
+          pm2 restart TEST_STAGING_FE
